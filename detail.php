@@ -74,7 +74,7 @@
             var pollInterval = null;
             
             function createOrder() {
-                var ordersUrl = "https://niclas-mp-commerce-php.herokuapp.com/api/orders.php";
+                var ordersUrl = "https://niclas-mp-commerce-php.herokuapp.com/api/orders.php"; /** Completar con Url de Heroku + path */
                 var title = "<?php echo $_POST['title'] ?>";
                 var unit_price = <?php echo $_POST['price'] ?>;
 
@@ -90,7 +90,7 @@
                         document.getElementById('create_button').setAttribute('hidden', false);
                         document.getElementById('cancel_button').removeAttribute('hidden');
                         var external_reference = JSON.parse(data).external_reference;
-                        var poll_url = "https://niclas-mp-commerce-php.herokuapp.com/api/status.php?external_reference="+external_reference;
+                        var poll_url = "https://niclas-mp-commerce-php.herokuapp.com/api/status.php?external_reference="+external_reference; /** Completar con Url de Heroku + path */
 
                         var poll = function() {
                             $.ajax({
@@ -119,7 +119,7 @@
 
             function cancelOrder() {
                 clearInterval(pollInterval);
-                var ordersUrl = "https://niclas-mp-commerce-php.herokuapp.com/api/delete-order.php";
+                var ordersUrl = "https://niclas-mp-commerce-php.herokuapp.com/api/delete-order.php"; /** Completar con Url de Heroku + path */
                 document.getElementById("order_status").innerText = "Erasing";
                 $.ajax({
                     url: ordersUrl,
